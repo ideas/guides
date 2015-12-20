@@ -20,3 +20,8 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
+This directory incorporates work covered by the following copyright and
+permission notice:
+
+Copyright (c) 2014 thoughtbot, inc. Distributed under the [Creative Commons
+Attribution License](http://creativecommons.org/licenses/by/3.0/).
