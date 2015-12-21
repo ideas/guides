@@ -119,6 +119,8 @@ Node.js version: 5.3.x.
 
   - Never use the `Function` constructor to create a new function. Creating a function in this way evaluates a string similarly to `eval()`, which opens vulnerabilities.
 
+  - Never mutate parameters. Overwriting parameters can lead to unexpected behavior, especially when accessing the arguments object. Manipulating objects passed in as parameters can cause unwanted variable side effects in the original caller.
+
 ## Arrow Functions
 
   - When you must use function expressions (as when passing an anonymous function), use arrow function notation. It creates a version of the function that executes in the context of `this`, which is usually what you want, and is a more concise syntax.
