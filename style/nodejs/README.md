@@ -84,7 +84,7 @@ Node.js version: 5.3.x.
 
   - Use single quotes `''` for strings.
 
-  - Strings longer than 80 characters should be written across multiple lines using string concatenation.
+  - Strings that cause the line to go over 100 characters should be written across multiple lines using string concatenation.
 
   - When programmatically building up strings, use template strings instead of concatenation. Template strings give you a readable, concise syntax with proper newlines and string interpolation features.
 
@@ -337,6 +337,8 @@ Node.js version: 5.3.x.
 
     return obj;
     ```
+
+  - Avoid having lines of code that are longer than 100 characters (including whitespace). This ensures readability and maintainability.
 
 ## Commas
 
