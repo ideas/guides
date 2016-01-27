@@ -348,6 +348,27 @@ Node.js version: 5.3.x.
     }
     ```
 
+  - Do not add spaces inside parentheses.
+
+    ```javascript
+    if (foo) {
+      console.log(foo);
+    }
+    ```
+
+  - Do not add spaces inside brackets.
+
+    ```javascript
+    const foo = [1, 2, 3];
+    console.log(foo[0]);
+    ```
+
+  - Add spaces inside curly braces.
+
+    ```javascript
+    const foo = { bar: 'test' };
+    ```
+
   - Avoid having lines of code that are longer than 100 characters (including whitespace). This ensures readability and maintainability.
 
 ## Commas
