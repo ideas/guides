@@ -119,6 +119,13 @@ Node.js version: 5.3.x.
 
   - Never use the `Function` constructor to create a new function. Creating a function in this way evaluates a string similarly to `eval()`, which opens vulnerabilities.
 
+  - Spacing in a function signature. Consistency is good, and you shouldn’t have to add or remove a space when adding or removing a name.
+
+    ```javascript
+    const x = function () {};
+    const y = function a() {};
+    ```
+
   - Never mutate parameters. Manipulating objects passed in as parameters can cause unwanted variable side effects in the original caller.
 
   - Never reassign parameters. Reassigning parameters can lead to unexpected behavior, especially when accessing the `arguments` object. It can also cause optimization issues, especially in V8.
@@ -291,7 +298,7 @@ Node.js version: 5.3.x.
   - Use soft tabs set to 2 spaces.
 
     ```javascript
-    function() {
+    function () {
     ∙∙const name;
     }
     ```
