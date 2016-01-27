@@ -28,9 +28,9 @@ Node.js version: 5.3.x.
 
 ## References
 
-  - Use `const` for all of your references; avoid using `var`. This ensures that you can't reassign your references (mutation), which can lead to bugs and difficult to comprehend code.
+  - Use `const` for all of your references; avoid using `var`. This ensures that you can't reassign your references, which can lead to bugs and difficult to comprehend code.
 
-  - If you must mutate references, use `let` instead of `var`. `let` is block-scoped rather than function-scoped like `var`.
+  - If you must reassign references, use `let` instead of `var`. `let` is block-scoped rather than function-scoped like `var`.
 
 ## Objects
 
