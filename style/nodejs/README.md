@@ -273,7 +273,7 @@ Node.js version: 5.3.x.
 
   - Use `/** ... */` for multi-line comments. Include a description, specify types and values for all parameters and return values.
 
-  - Use `//` for single line comments. Place single line comments on a newline above the subject of the comment. Put an empty line before the comment.
+  - Use `//` for single line comments. Place single line comments on a newline above the subject of the comment. Put an empty line before the comment unless it's on the first line of a block.
 
     ```javascript
     function getType() {
@@ -338,6 +338,14 @@ Node.js version: 5.3.x.
     };
 
     return obj;
+    ```
+
+  - Do not pad your blocks with blank lines.
+
+    ```javascript
+    function bar() {
+      console.log(foo);
+    }
     ```
 
   - Avoid having lines of code that are longer than 100 characters (including whitespace). This ensures readability and maintainability.
