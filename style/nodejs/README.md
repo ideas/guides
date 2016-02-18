@@ -66,6 +66,16 @@ Node.js version: 5.3.x.
 
   - Group your shorthand properties at the beginning of your object declaration. It's easier to tell which properties are using the shorthand.
 
+  - Only quote properties that are invalid identifiers. In general we consider it subjectively easier to read. It improves syntax highlighting, and is also more easily optimized by many JS engines.
+
+    ```javascript
+    const example = {
+      foo: 3,
+      bar: 4,
+      'data-blah': 5
+    };
+    ```
+
 ## Arrays
 
   - Use the literal syntax for array creation.
