@@ -252,6 +252,8 @@ Node.js version: 5.3.x.
     }
     ```
 
+  - Ternaries should not be nested and generally be single line expressions.
+
 ## Blocks
 
   - Use braces with all multi-line blocks.
