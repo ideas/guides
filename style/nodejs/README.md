@@ -90,6 +90,17 @@ Node.js version: 5.3.x.
 
   - To convert an array-like object to an array, use `Array#from`.
 
+  - Use return statements in array method callbacks. It's ok to omit the return if the function body consists of a single statement.
+
+    ```javascript
+    [1, 2, 3].map((x) => {
+      const y = x + 1;
+      return x * y;
+    });
+
+    [1, 2, 3].map(x => x + 1);
+    ```
+
 ## Strings
 
   - Use single quotes `''` for strings.
@@ -165,11 +176,16 @@ Node.js version: 5.3.x.
       'longer. So we needed to break it over multiple lines.'
     ));
     ```
+
+  - Always include parentheses around arguments.
+
   - Place 1 space before and after `=>`.
 
     ```js
     [1, 2, 3].map((x) => x * x);
     ```
+
+  - Avoid confusing arrow function syntax (`=>`) with comparison operators (`<=`, `>=`).
 
 ## Constructors
 
@@ -202,6 +218,8 @@ Node.js version: 5.3.x.
   - Methods can return `this` to help with method chaining.
 
   - It's okay to write a custom `toString()` method, just make sure it works successfully and causes no side effects.
+
+  - Classes have a default constructor if one is not specified. An empty constructor function or one that just delegates to a parent class is unnecessary.
 
 ## Promises
 
@@ -368,7 +386,7 @@ Node.js version: 5.3.x.
 
   - End files with a single newline character.
 
-  - Use indentation when making long method chains. Use a leading dot, which emphasizes that the line is a method call, not a new statement.
+  - Use indentation when making long method chains (more than 2 method chains). Use a leading dot, which emphasizes that the line is a method call, not a new statement.
 
   - Leave a blank line after blocks and before the next statement.
 
