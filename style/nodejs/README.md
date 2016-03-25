@@ -244,7 +244,7 @@ Node.js version: 5.3.x.
 
 ## Iterators
 
-  - Don't use iterators. Prefer JavaScript's higher-order functions like `map()` and `reduce()` instead of loops like `for-of`. This enforces our immutable rule. Dealing with pure functions that return values is easier to reason about than side-effects.
+  - Don't use iterators. Prefer JavaScript's higher-order functions like `map()` and `reduce()` instead of loops like `for-of`. This enforces our immutable rule. Dealing with pure functions that return values is easier to reason about than side effects.
 
 ## Properties
 
@@ -520,7 +520,7 @@ Node.js version: 5.3.x.
 
   - Accessor functions for properties are not required.
 
-  - If you do make accessor functions use `getValue()` and `setValue(value)`.
+  - Do not use JavaScript getters/setters as they cause unexpected side effects and are harder to test, maintain, and reason about. Instead, if you do make accessor functions, use `getValue()` and `setValue(value)`.
 
     ```javascript
     user.getAge();
