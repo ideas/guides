@@ -10,7 +10,7 @@ Node.js version: 5.3.x.
   - [Strings](#strings)
   - [Functions](#functions)
   - [Arrow Functions](#arrow-functions)
-  - [Constructors](#constructors)
+  - [Classes & Constructors](#classes--constructors)
   - [Promises](#promises)
   - [Iterators](#iterators)
   - [Properties](#properties)
@@ -187,7 +187,7 @@ Node.js version: 5.3.x.
 
   - Avoid confusing arrow function syntax (`=>`) with comparison operators (`<=`, `>=`).
 
-## Constructors
+## Classes & Constructors
 
   - Always use `class`. Avoid manipulating `prototype` directly.
 
