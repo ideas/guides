@@ -125,6 +125,14 @@ Node.js version: 5.3.x.
     }
     ```
 
+  - Wrap immediately invoked function expressions in parentheses. An immediately invoked function expression is a single unit - wrapping both it, and its invocation parens, in parens, cleanly expresses this. Note that in a world with modules everywhere, you almost never need an IIFE.
+
+    ```javascript
+    (function () {
+      console.log('Welcome to the Internet. Please follow me.');
+    }());
+    ```
+
   - Never declare a function in a non-function block (if, while, etc). Assign the function to a variable instead.
 
     ```javascript
