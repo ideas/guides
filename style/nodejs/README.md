@@ -508,11 +508,7 @@ Node.js version: 5.3.x.
     }
     ```
 
-  - Use a leading underscore `_` when naming private properties.
-
-    ```javascript
-    this._name = 'Dana Scully';
-    ```
+  - Do not use trailing or leading underscores. JavaScript does not have the concept of privacy in terms of properties or methods. Although a leading underscore is a common convention to mean "private", in fact, these properties are fully public, and as such, are part of your public API contract. This convention might lead developers to wrongly think that a change won't count as breaking, or that tests aren't needed.
 
   - Don't save references to `this`. Use arrow functions or `Function#bind`.
 
