@@ -452,10 +452,10 @@ Node.js version: 5.3.x.
   - Use semicolons.
 
     ```javascript
-    (() => {
+    (function () => {
       const name = 'Dana Scully';
       return name;
-    })();
+    }());
     ```
 
 ## Type Casting & Coercion
