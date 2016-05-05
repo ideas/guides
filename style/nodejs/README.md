@@ -1,12 +1,13 @@
 # Node.js Style Guide
 
-Node.js version: 5.3.x.
+Node.js version: 6.0.x.
 
 ## Table of Contents
 
   - [References](#references)
   - [Objects](#objects)
   - [Arrays](#arrays)
+  - [Destructuring](#destructuring)
   - [Strings](#strings)
   - [Functions](#functions)
   - [Arrow Functions](#arrow-functions)
@@ -50,7 +51,7 @@ Node.js version: 5.3.x.
 
       addValue(value) {
         return atom.value + value;
-      },
+      }
     };
     ```
 
@@ -60,7 +61,7 @@ Node.js version: 5.3.x.
     const value = 1;
 
     const atom = {
-      value,
+      value
     };
     ```
 
@@ -100,6 +101,23 @@ Node.js version: 5.3.x.
 
     [1, 2, 3].map(x => x + 1);
     ```
+## Destructuring
+
+  - Use object destructuring when accessing and using multiple properties of an object. Destructuring saves you from creating temporary references for those properties.
+
+    ```javascript
+    function getFullName({ firstName, lastName }) {
+      return `${firstName} ${lastName}`;
+    }
+    ```
+  - Use array destructuring.
+
+    ```javascript
+    const arr = [1, 2, 3, 4];
+    const [first, second] = arr;
+    ```
+
+  - Use object destructuring for multiple return values, not array destructuring. You can add new properties over time or change the order of things without breaking call sites.
 
 ## Strings
 
@@ -115,9 +133,16 @@ Node.js version: 5.3.x.
 
   - Never use `eval()` on a string, it opens too many vulnerabilities.
 
+  - Do not unnecessarily escape characters in strings. Backslashes harm readability, thus they should only be present when necessary.
+
+    ```javascript
+    const foo = '\'this\' is "quoted"';
+    const foo = `'this' is "quoted"`;
+    ```
+
 ## Functions
 
-  - Use function declarations instead of function expressions. Function declarations are named, so they're easier to identify in call stacks. Also, the whole body of a function declaration is hoisted, whereas only the reference of a function expression is hoisted. This rule makes it possible to always use Arrow Functions in place of function expressions.
+  - Use function declarations instead of function expressions. Function declarations are named, so they're easier to identify in call stacks. Also, the whole body of a function declaration is hoisted, whereas only the reference of a function expression is hoisted. This rule makes it possible to always use arrow functions in place of function expressions.
 
     ```javascript
     function foo() {
@@ -145,6 +170,18 @@ Node.js version: 5.3.x.
     ```
 
   - Never name a parameter `arguments`. This will take precedence over the `arguments` object that is given to every function scope.
+
+  - Never use `arguments`, opt to use rest syntax `...` instead. `...` is explicit about which arguments you want pulled. Plus, rest arguments are a real Array, and not merely Array-like like `arguments`.
+
+    ```javascript
+    function concatenate(...args) {
+      return args.join;
+    }
+    ```
+
+  - Use default parameter syntax rather than mutating function arguments.
+
+  - Always put default parameters last.
 
   - Never use the `Function` constructor to create a new function. Creating a function in this way evaluates a string similarly to `eval()`, which opens vulnerabilities.
 
@@ -229,6 +266,8 @@ Node.js version: 5.3.x.
 
   - Classes have a default constructor if one is not specified. An empty constructor function or one that just delegates to a parent class is unnecessary.
 
+  - Avoid duplicate class members. Duplicate class member declarations will silently prefer the last one - having duplicates is almost certainly a bug.
+
 ## Promises
 
   - Build you interfaces using Promises. Instead of asking to provide a callback to your function, return a Promise.
@@ -262,7 +301,7 @@ Node.js version: 5.3.x.
     const value = atom.value;
     ```
 
-  - Use subscript notation `[]` when accessing properties with a variable.
+  - Use bracket notation `[]` when accessing properties with a variable.
 
 ## Variables
 
@@ -271,6 +310,8 @@ Node.js version: 5.3.x.
   - Use one `const` declaration per variable. It's easier to add new variable declarations this way, and you never have to worry about swapping out a `;` for a `,` or introducing punctuation-only diffs.
 
   - Group all your `const`s and then group all your `let`s. This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
+
+  - Assign variables where you need them, but place them in a reasonable place.
 
 ## Comparison Operators and Equality
 
@@ -561,3 +602,9 @@ Node.js version: 5.3.x.
 ## Testing
 
   - Use tests with 100% code coverage.
+
+  - Strive to write many small pure functions, and minimize where mutations occur.
+
+  - Be cautious about stubs and mocks - they can make your tests more brittle.
+
+  - Whenever you fix a bug, write a regression test. A bug fixed without a regression test is almost certainly going to break again in the future.
